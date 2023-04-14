@@ -1,4 +1,4 @@
-# Sample Serverless Sample SAM with Datadog.
+# Serverless Sample SAM with Datadog.
 
 This is a simple voting service built on a Serverless Architecture using AWS SAM. It features [Datadog's Serverless monitoring](https://docs.datadoghq.com/serverless/). The backend consists of Lambda, API Gateway, SQS, and DynamoDB, all used in conjunction. It's built with a combination of Python and Node, making it a multi-language application. All major features of Datadog Lambda monitoring are enabled.
 
