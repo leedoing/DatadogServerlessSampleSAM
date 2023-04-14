@@ -19,4 +19,3 @@ This is a simple voting service built on a Serverless Architecture using AWS SAM
 [https://datadoghq.net](https://datadoghq.net)
 
 ---
-# DatadogServerlessSampleSAM
