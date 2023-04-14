@@ -18,4 +18,22 @@ This is a simple voting service built on a Serverless Architecture using AWS SAM
 
 [https://datadoghq.net](https://datadoghq.net)
 
+## Create a SAM
+
+```sh
+## In order to use AWS SAM, it needs to be installed first. (https://docs.aws.amazon.com/ko_kr/serverless-application-model/latest/developerguide/serverless-getting-started.html)
+# git clone
+git clone https://github.com/leedoing/DatadogServerlessSampleSAM.git
+
+# Create SAM Datadog stack
+aws cloudformation create-stack \
+  --stack-name datadog-serverless-macro \
+  --template-url https://datadog-cloudformation-template.s3.amazonaws.com/aws/serverless-macro/latest.yml \
+  --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM
+
+# Deploy SAM
+sam deploy --guided
+
+
 ---
+```
