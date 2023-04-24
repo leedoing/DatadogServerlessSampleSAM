@@ -28,6 +28,7 @@ def handler(event, context):
                 'Access-Control-Allow-Headers': 'Content-Type',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'OPTIONS,POST',
+                'Timing-Allow-Origin': '*'
             },
             'body': json.dumps(data),
         }

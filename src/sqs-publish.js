@@ -32,6 +32,7 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "OPTIONS,POST",
+        "Timing-Allow-Origin": "*",
       },
       // Body should be JSON stringified.
       body: JSON.stringify(data),
