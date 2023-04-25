@@ -28,30 +28,30 @@ const UpdateDynamoDB = async function (body) {
 };
 
 exports.handler = async (event) => {
-  let win = "";
   console.log(JSON.stringify(event));
-  // Process SQS messages in batch, up to 10 records in each batch
+  let response = {};
+
   for (const record of event.Records) {
     const messageId = record.messageId;
     console.log("MessageId: ", messageId);
 
-    // SQS record body includes entire API POST request
     const recordBody = JSON.parse(record.body);
     console.log("SqsRecordBody: ", JSON.stringify(recordBody));
 
-    // Example body from API POST request: {"id":"dog"}
     const requestBody = JSON.parse(recordBody.body);
     const data = await UpdateDynamoDB(requestBody);
-  }
 
-  return {
-    statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "OPTIONS,POST",
-      "Timing-Allow-Origin": "*",
-    },
-    body: "Update DynamoDB Success",
-  };
+    response = {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS,POST",
+        "Timing-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    };
+  }
+  console.log("Response: ", JSON.stringify(response));
+  return response;
 };
