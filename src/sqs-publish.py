@@ -30,7 +30,7 @@ def handler(event, context):
                 'Access-Control-Allow-Methods': 'OPTIONS,POST',
                 'Timing-Allow-Origin': '*'
             },
-            'body': json.dumps(data),
+            'body': "Published SQS",
         }
     
     print('Response: ', json.dumps(response))
