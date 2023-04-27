@@ -16,9 +16,9 @@ This is a simple voting service built on a Serverless Architecture using AWS SAM
 
 ## URL
 
-[https://datadoghq.net](https://datadoghq.net)
+[https://sls.datadoghq.net](https://sls.datadoghq.net)
 
-[https://datadoghq.net/en](https://datadoghq.net/en)
+[https://sls.datadoghq.net/en](https://sls.datadoghq.net/en)
 
 ## Create a SAM
 
