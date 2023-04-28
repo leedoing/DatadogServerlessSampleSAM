@@ -34,6 +34,8 @@ Globals:
       - x86_64
     Timeout: 5
     MemorySize: 512
+    Layers:
+      - !Sub "arn:aws:lambda:${AWS::Region}:580247275435:layer:LambdaInsightsExtension:14"
 
 # DynamoDB table to store data with stream enabled:
 Resources:
@@ -87,6 +89,7 @@ Resources:
       Policies:
         - DynamoDBReadPolicy:
             TableName: !Ref VotesTable
+        - CloudWatchLambdaInsightsExecutionRolePolicy
       Environment:
         Variables:
           DDB_VOTES_TABLE_NAME: !Ref VotesTable
@@ -115,6 +118,7 @@ Resources:
             TableName: !Ref WinTable
         - SQSPollerPolicy:
             QueueName: !GetAtt SqsQueue.QueueName
+        - CloudWatchLambdaInsightsExecutionRolePolicy
       Environment:
         Variables:
           DDB_VOTES_TABLE_NAME: !Ref VotesTable
@@ -145,6 +149,7 @@ Resources:
       Policies:
         - SQSSendMessagePolicy:
             QueueName: !GetAtt SqsQueue.QueueName
+        - CloudWatchLambdaInsightsExecutionRolePolicy
       Environment:
         Variables:
           SQS_QUEUE_URL: !Ref SqsQueue
@@ -169,6 +174,7 @@ Resources:
             TableName: !Ref WinTable
         - DynamoDBWritePolicy:
             TableName: !Ref WinTable
+        - CloudWatchLambdaInsightsExecutionRolePolicy
       Environment:
         Variables:
           DDB_WIN_TABLE_NAME: !Ref WinTable
