@@ -6,6 +6,7 @@ DDB_WIN_TABLE_NAME = os.environ['DDB_WIN_TABLE_NAME']
 table = dynamodb.Table(DDB_WIN_TABLE_NAME)
 
 def handler(event, context):
+    print(event)
     win_name = 'coffee'
     try: 
         response = table.get_item(

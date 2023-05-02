@@ -4,12 +4,12 @@ const { DDB_VOTES_TABLE_NAME } = process.env;
 
 const UpdateDynamoDB = async function (body) {
   try {
-    for (const key in body.vote_name) {
+    for (const key in body.survey_name) {
       await ddb
         .update({
           TableName: DDB_VOTES_TABLE_NAME,
           Key: {
-            vote_name: body.vote_name[key],
+            survey_name: body.survey_name[key],
           },
           UpdateExpression: `SET votes = if_not_exists(votes, :default_votes) + :value`,
           ExpressionAttributeValues: {
